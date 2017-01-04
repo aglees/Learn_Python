@@ -40,18 +40,19 @@ def rev_word5(s):
 
     spaces = [" "]
     words = []
-    i = j = 0
+    i =  0
     length = len(s)
 
     while i < length:
 
         if s[i] not in spaces:
             
-            j = i
+            word_start_index = i
+            
             while (i < length) and s[i] not in spaces:
                 i += 1
             
-            words.append(s[j:i])
+            words.append(s[word_start_index:i])
         
         i += 1
 
