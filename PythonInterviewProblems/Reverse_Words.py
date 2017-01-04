@@ -16,6 +16,51 @@ def rev_word2(s):
 def rev_word3(s):
     return " ".join(s.split()[::-1])
 
-print (rev_word('Hi John,   are you ready to go?'))
-print (rev_word2('Hi John,   are you ready to go?'))
-print (rev_word3('Hi John,   are you ready to go?'))
+def rev_word4(s):
+
+    # remove leading and trailing white space
+    u = v = 0
+    for u in range(len(s)):
+        if s[u] != " ":
+            break
+
+    word = s[::-1]
+
+    for v in range(len(word)):
+        if word[v] != " ":
+            break
+
+    output = []
+    for z in range(u, len(s) - v):
+        print s[z]
+
+    return output
+
+def rev_word5(s):
+
+    spaces = [" "]
+    words = []
+    i = j = 0
+    length = len(s)
+
+    while i < length:
+
+        if s[i] not in spaces:
+            
+            j = i
+            while (i < length) and s[i] not in spaces:
+                i += 1
+            
+            words.append(s[j:i])
+        
+        i += 1
+
+    return " ".join(reversed(words))
+        
+
+
+
+# print (rev_word('Hi John,   are you ready to go?'))
+# print (rev_word2('Hi John,   are you ready to go?'))
+# print (rev_word3('Hi John,   are you ready to go?'))
+print (rev_word5('Hi John,   are you ready to go?'))
