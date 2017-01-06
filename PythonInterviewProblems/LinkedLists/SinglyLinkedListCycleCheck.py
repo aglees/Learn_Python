@@ -26,7 +26,40 @@ def cycle_check(node):
 
 # write a better function using the 2-runners idea
 def cycle_check2(node):
-    pass
+
+    if node.nextnode == None:
+        return False
+    
+    runner1 = node
+    runner2 = node.nextnode
+
+    while runner2 != None:
+
+        for i in range(2):
+            runner2 = runner2.nextnode
+            if runner2 == runner1:
+                return True
+            elif runner2.nextnode == None:
+                return False
+        
+        runner1 = runner1.nextnode
+
+    return False
+
+def cycle_check3(node):
+    
+    marker1 = node
+    marker2 = node
+    
+    while marker2 != None and marker2.nextnode != None:
+        
+        marker1 = marker1.nextnode
+        marker2 = marker2.nextnode.nextnode
+        
+        if marker2 == marker1:
+            return True
+    
+    return False
 
 """
 RUN THIS CELL TO TEST YOUR SOLUTION
