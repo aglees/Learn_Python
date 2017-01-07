@@ -20,4 +20,4 @@ def permute(s):
 
     return out
 
-permute('abc')
+permute('abcde')
