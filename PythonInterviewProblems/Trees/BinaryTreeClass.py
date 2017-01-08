@@ -7,7 +7,7 @@ class BinaryTree(object):
         self.rightChild = None
 
     def insertLeftChild(self, newNode):
-        
+
         if self.leftChild == None:
             self.leftChild = BinaryTree(newNode)
         else:
@@ -35,3 +35,40 @@ class BinaryTree(object):
 
     def setRootVal(self, obj):
         self.key = obj
+
+def Preorder(tree):
+
+    if tree != None:
+        print(tree.getRootVal())
+        Preorder(tree.getLeftChild())
+        Preorder(tree.getRightChild())
+
+def Inorder(tree):
+
+    if tree != None:
+        Preorder(tree.getLeftChild())
+        print(tree.getRootVal())
+        Preorder(tree.getRightChild())
+
+def Postorder(tree):
+
+    if tree != None:
+        Preorder(tree.getLeftChild())
+        Preorder(tree.getRightChild())
+        print(tree.getRootVal())
+        
+
+btree = BinaryTree('root0')
+btree.insertLeftChild('leftChild1')
+btree.insertRightChild('rightChild1')
+btree.rightChild.insertLeftChild('leftChild2')
+btree.leftChild.insertLeftChild('leftChild2')
+btree.leftChild.leftChild.insertLeftChild('leftChild3')
+btree.leftChild.leftChild.insertRightChild('rightChild3')
+btree.rightChild.insertRightChild('rightChild2')
+btree.rightChild.rightChild.insertLeftChild('leftChild3')
+btree.rightChild.rightChild.insertRightChild('rightChild3')
+
+Postorder(btree)
+
+del btree
