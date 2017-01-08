@@ -45,7 +45,27 @@ def fib_iter(n):
 
     return sum
 
+def fib_iter2(n):
+
+    series = [0, 1]
+
+    for i in range(2, n+1):
+
+        series.append(series[i-1] + series[i-2])
+
+    return series[n]
+
+def fib_iter3(n):
+
+    a, b = 0, 1
+
+    for i in range(n):
+
+        a, b = b, b + a
+
+    return a
+
 # print(fib_recursion(10))
 # print(fib_dynamic(30))
 # print(fib_dynamic2(30))
-print(fib_iter(10))
+print(fib_iter3(10))
